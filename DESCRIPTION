@@ -1,11 +1,12 @@
 Package: easyqpcr2
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Custom package rescuing the deprecated EasyqpcR package
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Daniel Rodríguez
+Maintainer: Daniel Rodríguez <72925497+dsrodriguezl@users.noreply.github.com>
+Description: Rebuild of the abandoned EasyqpcR package (v. 2.12).
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
+Imports: tidyr, dplyr, stringr, purrr, plyr, matrixStats, broom
+RoxygenNote: 7.2.3
