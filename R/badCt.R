@@ -19,6 +19,10 @@
 #'
 #' @usage badCt(data, r, threshold, na.rm = FALSE)
 #'
+#' @returns This function returns the position (sample position and column
+#'  position) where the variation between qPCR replicates is superior to the
+#'   threshold value.
+#'
 #' @author
 #' Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
 #'

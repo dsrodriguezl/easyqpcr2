@@ -12,7 +12,6 @@
 #' new, it has been used in microarray data analysis and is based on a series
 #' of sequential corrections, including log transformation, mean centering,
 #' and autoscaling.
-
 #'
 #' @param data data.frame containing row datas (genes in columns, samples
 #' in rows, Cq values).
@@ -38,7 +37,6 @@
 #' @param na.rm logical, indicating whether NA values should be stripped before
 #' the computation proceeds.
 #'
-#'
 #' @details The standardization procedure used in this function (if TRUE for
 #' the transformation argument) is based on the article of Willems et al.
 #' (2008). This function perform successively thEerror operations :
@@ -56,8 +54,23 @@
 #' totData(data, r, geo = TRUE, logarithm = TRUE, base, transformation = TRUE,
 #'  nSpl, linear = TRUE, na.rm = na.rm)
 #'
-#' @value Mean of your qPCR runs
-
+#' @returns
+#' Mean of your qPCR runs.
+#' The geometric (if TRUE for geo) or arithmetic mean of your biological
+#' replicates.
+#'
+#' Standard deviations of your qPCR runs.
+#' The standard deviation of your biological replicates.
+#'
+#' Standard errors of your qPCR runs.
+#' The standard error of your biological replicates.
+#'
+#' Transformed data.
+#' If TRUE for transformation, your raw data will be transformed by the algorithm
+#' of Willems et al. (2008).
+#'
+#' Reordered transformed data.
+#' The transformed data reordered by rowname.
 #'
 #' @author
 #' Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)

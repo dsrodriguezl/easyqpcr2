@@ -32,6 +32,24 @@ data will be normalized (anti-log-transformed).}
 \item{na.rm}{logical, indicating whether NA values should be stripped before
 the computation proceeds.}
 }
+\value{
+Mean of your qPCR runs.
+The geometric (if TRUE for geo) or arithmetic mean of your biological
+replicates.
+
+Standard deviations of your qPCR runs.
+The standard deviation of your biological replicates.
+
+Standard errors of your qPCR runs.
+The standard error of your biological replicates.
+
+Transformed data.
+If TRUE for transformation, your raw data will be transformed by the algorithm
+of Willems et al. (2008).
+
+Reordered transformed data.
+The transformed data reordered by rowname.
+}
 \description{
 Original EasyqpcR function.
 This function aggregates qPCR biological replicates and calculates the main

@@ -24,6 +24,13 @@
 #'
 #' slope(data, q, r, na.rm = FALSE)
 #'
+#' @returns
+#'  Efficiency Primer amplification efficiency.
+#'
+#'  Slope Slope of the dilution curve.
+#'
+#'  Intercept Intercept of the dilution curve
+#'
 #' @author
 #' Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
 #'

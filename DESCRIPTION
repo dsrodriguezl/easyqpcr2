@@ -4,19 +4,20 @@ Title: Custom package based on the abandoned EasyqpcR package
 Version: 0.1.0
 Date: 2023-03-09
 Author: Daniel S. Rodríguez-Leon
-Maintainer: Daniel S. Rodríguez-Leon <72925497+dsrodriguezl@users.noreply.github.com>
+Maintainer: Daniel S. Rodríguez-Leon
+  <72925497+dsrodriguezl@users.noreply.github.com>
 Description: Rebuild of the abandoned EasyqpcR package, from Bioconductor (V 2.12).
   As EasyqpcR, this package is intended for the analysis of low-throughput 
   real-time quantitative PCR data, based on the qBase algorithms published by 
   Hellemans et al. in 2007. 
-  Several functions were modyfied to be able to work with the newest version of R,
-  and/or to add extra functionalities to them.
+  Several functions were modyfied to be able to work with the newest version of 
+  R, and/or to add extra functionalities to them.
   New versions of the original functions state that they are modified of an 
   original EasyqpcR function, and of which, in their descriptions.
   The code of the original unmodified EasyqpcR functions is included in 
   this package, to make it available available to any user. 
   However, they might not run.
-License: GPL(=>3)
+License: GPL(>=3)
 Encoding: UTF-8
 LazyData: true
 Imports: tidyr, dplyr, stringr, purrr, plyr, matrixStats, broom

@@ -17,6 +17,13 @@ rows, Cq values).}
 \item{na.rm}{logical, indicating whether NA values should be stripped before
 the computation proceeds.}
 }
+\value{
+Efficiency Primer amplification efficiency.
+
+ Slope Slope of the dilution curve.
+
+ Intercept Intercept of the dilution curve
+}
 \description{
 Original EasyqpcR function.
 This function calculates the amplification efficiency from

@@ -10,6 +10,10 @@ calData(data)
 \item{data}{data.frame containing the NRQs of your calibrator(s) for each
 gene obtained by the nrmData function of this package.}
 }
+\value{
+This function returns the calibration factor associated to each gene
+ for the whole runs.
+}
 \description{
 Original EasyqpcR function.
 This function determines the calibration factors (CF) using the method

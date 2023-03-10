@@ -15,6 +15,9 @@
 #'
 #' @usage calData(data)
 #'
+#' @returns This function returns the calibration factor associated to each gene
+#'  for the whole runs.
+#'
 #' @author
 #' Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
 #'

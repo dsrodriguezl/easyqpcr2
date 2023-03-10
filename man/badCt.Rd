@@ -17,6 +17,11 @@ rows, Cq values).}
 \item{na.rm}{a logical value indicating whether NA values should be stripped
 before the computation proceeds.}
 }
+\value{
+This function returns the position (sample position and column
+ position) where the variation between qPCR replicates is superior to the
+  threshold value.
+}
 \description{
 Original EasyqpcR function.
 This function allows you to evaluate your qPCR technical
