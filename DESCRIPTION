@@ -20,5 +20,14 @@ Description: Rebuild of the abandoned EasyqpcR package, from Bioconductor (V 2.1
 License: GPL(>=3)
 Encoding: UTF-8
 LazyData: true
-Imports: tidyr, dplyr, stringr, purrr, plyr, matrixStats, broom
+Imports: 
+    tidyr,
+    dplyr,
+    stringr,
+    purrr,
+    plyr,
+    matrixStats,
+    broom,
+    stats,
+    utils
 RoxygenNote: 7.2.3

@@ -2,7 +2,8 @@
 % Please edit documentation in R/normalize_data.R
 \name{normalize_data}
 \alias{normalize_data}
-\title{normalize_data}
+\title{Determination of the NF, RQ, NRQ, NRQ scaled to control and their
+SE and SD}
 \usage{
 normalize_data(
   data,
@@ -20,7 +21,47 @@ normalize_data(
   na.rm = na.rm
 )
 }
+\arguments{
+\item{data}{data.frame containing row datas (genes in columns, samples in rows, Cq values).}
+
+\item{r}{numeric, number of qPCR replicates}
+
+\item{E}{numeric, amplification efficiency values for each gene (follow the same order
+of the genes).}
+
+\item{Eerror}{numeric, standard errors of amplification efficiencies for each gene (follow
+the same order of the genes).}
+
+\item{nSpl}{numeric, number of samples to analyzed.}
+
+\item{nbRef}{numeric, number of reference genes used.}
+
+\item{Refposcol}{column position of your reference gene(s).}
+
+\item{nCTL}{numeric, number of samples forming your control group.}
+
+\item{CF}{numeric (or object if you have used the calData function from this package),
+values of the calibration factors for each gene (follow the same order of
+the genes).}
+
+\item{CalPos}{numeric, sample number of your calibrator(s).}
+
+\item{trace}{logical, print additional information.}
+
+\item{geo}{logical, to scale to your control group, the function will use the
+geometrical mean if TRUE or the arithmetic mean if FALSE.}
+
+\item{na.rm}{a logical value indicating whether NA values should be stripped before the
+computation proceeds.}
+}
 \description{
 Customized version of the nrmData function, it is meant to be
- used within the calibration_factors function
+ used within the calibration_factors function.
+
+ This function is basically identical to the original nmrData.
+ Obviously the name is different, which is in snake case format and is
+ more informative regarding what the function does.
+ But, unlike nmrData it does not rely on the pakcage plyr being loaded, which
+ causes conflicts with the dplyr package. Instead, plyr functions are called
+ using '::'.
 }

@@ -1,5 +1,4 @@
 #' @title Aggregation of qPCR biological replicates and data transformation
-
 #'
 #' @description Original EasyqpcR function.
 #' This function aggregates qPCR biological replicates and calculates the main

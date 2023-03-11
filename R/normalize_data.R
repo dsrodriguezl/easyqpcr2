@@ -1,7 +1,61 @@
-#' @title normalize_data
+#' @title Determination of the NF, RQ, NRQ, NRQ scaled to control and their
+#' SE and SD
 #'
-#' @description  Customized version of the nrmData function, it is meant to be
-#'  used within the calibration_factors function
+#' @param data
+#' data.frame containing data (genes in columns, samples in rows, Cq values).
+#'
+#' @param r
+#' numeric, number of qPCR replicates
+#'
+#' @param E
+#' numeric, amplification efficiency values for each gene (follow the same order
+#'  of the genes).
+#'
+#' @param Eerror
+#' numeric, standard errors of amplification efficiencies for each gene (follow
+#'  the same order of the genes).
+#'
+#' @param nSpl
+#' numeric, number of samples to analyzed.
+#'
+#' @param nbRef
+#' numeric, number of reference genes used.
+#'
+#' @param Refposcol
+#' column position of your reference gene(s).
+#'
+#' @param nCTL
+#' numeric, number of samples forming your control group.
+#'
+#' @param CF
+#' numeric (or object if you have used the calData function from this package),
+#'  values of the calibration factors for each gene (follow the same order of
+#'  the genes).
+#'
+#' @param CalPos
+#' numeric, sample number of your calibrator(s).
+#'
+#' @param trace
+#' logical, print additional information.
+#'
+#' @param geo
+#' logical, to scale to your control group, the function will use the
+#'  geometrical mean if TRUE or the arithmetic mean if FALSE.
+#'
+#' @param na.rm
+#' a logical value indicating whether NA values should be stripped before the
+#'  computation proceeds.
+#'
+#' @description Customized version of the nrmData function, it is meant to be
+#'  used within the calibration_factors function.
+#'
+#'  This function is basically identical to the original nmrData.
+#'  Obviously the name is different, which is in snake case format and is
+#'  more informative regarding what the function does.
+#'  But, unlike nmrData it does not rely on the pakcage plyr being loaded, which
+#'  causes conflicts with the dplyr package. Instead, plyr functions are called
+#'  using '::'.
+#'
 #'
 #' @export
 
@@ -18,16 +72,6 @@ normalize_data  <- function(data
                             , trace = FALSE
                             , geo = FALSE
                             , na.rm = na.rm) {
-
-  # # Install plyr package if it is not yet installed
-  # # But does not load it, to avoid conflicts with "dplyr" functions
-  # # plyr functions will be called explicitly "plyr::fun" within the function,
-  # # whenever they are needed
-  # x <- "plyr" %in% rownames(installed.packages())
-  # if (isFALSE(x)) {
-  #   install.packages("plyr")
-  # }
-
   n <- ncol(data)
   i <- 2:n
 
