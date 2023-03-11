@@ -1,44 +1,55 @@
-#' @title nrqs
+#' @title Calculate the NRQs values for each run
 #'
-#' @description Function to automatically calculate the NRQs values for each run
+#' @description Function to automatically calculate the NRQs values for each run.
 #'
 #' @param run.data.df
-#' @param n_replicates
+#' data frame or tibble containing qPCR Cq values data for each gene per sample
+#' per run per well. It requires a column per gene, with, as well as columns
+#' to indicate the Well, Run, and Sample in which a given Cq value was measured.
+#'
+#' @param n_replicates Number of replicates per sample within runs
+#'
 #' @param reference_genes
+#' Character vector with the name(s) of the reference gene(s)
+#'
 #' @param cals_identifier
+#' Character string indicating a text pattern to identify the calibrators by
+#' their names in the Sample column of the data frame, via stringr::str_detect.
+#' Default is set to "Cal".
+#'
 #' @param amp_efficiencies
+#' Object returned by the amp_efficiency function.
+#'
 #' @param cal.factors.list
+#' Object returned by calibration_factors function.
+#'
 #' @param n_control
+#' Number of control samples.
+#' The function assumes that this does not apply to the calculations it has to
+#'  make, thus its default value is NA.
+#'
 #' @param trace
+#' logical, print additional information.
+#'
 #' @param geo
+#' logical, to scale to your control group, the function will use the
+#'  geometrical mean if TRUE or the arithmetic mean if FALSE.
+#'
 #' @param na.rm
+#' a logical value indicating whether NA values should be stripped before the
+#'  computation proceeds.
 #'
 #' @import dplyr
 #' @import tidyr
 #' @import purrr
 #'
 #' @export
-
 nrqs <- function(run.data.df
-                 # Number of replicates per sample within runs
                  , n_replicates
-                 # Vector with the name(s) of the reference gene(s)
                  , reference_genes
-                 # String with a pattern to identify
-                 # the calibrators by their names in the Sample
-                 # column of the data frame
                  , cals_identifier = "Cal"
-                 # Object returned by the amp_efficiency function
                  , amp_efficiencies
-                 # Calibration factors
-                 # It assumes this variable does not apply,
-                 # as the function purpose is to calculate them
                  , cal.factors.list
-                 # Number of control samples
-                 # As my data does not have control/treatment
-                 # groups, I made the function assuming that
-                 # this does not apply to the calculations it
-                 # has to make
                  , n_control = NA
                  , trace = F
                  , geo = T

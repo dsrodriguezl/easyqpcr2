@@ -33,12 +33,6 @@
 #' management and automated analysis of real-time quantitative PCR data. Genome
 #' Biology 2007, 8:R19 (doi:10.1186/gb-2007-8-2-r19).
 #'
-#' @examples
-#'
-#' data(qPCR_run1)
-#'
-#' badCt(data=qPCR_run1, r=3, threshold=0.3, na.rm=TRUE)
-#'
 #' @export
 #'
 badCt <- function(data, r, threshold, na.rm=FALSE)

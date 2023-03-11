@@ -14,9 +14,6 @@ Description: Rebuild of the abandoned EasyqpcR package, from Bioconductor (V 2.1
   R, and/or to add extra functionalities to them.
   New versions of the original functions state that they are modified of an 
   original EasyqpcR function, and of which, in their descriptions.
-  The code of the original unmodified EasyqpcR functions is included in 
-  this package, to make it available available to any user. 
-  However, they might not run.
 License: GPL(>=3)
 Encoding: UTF-8
 LazyData: true

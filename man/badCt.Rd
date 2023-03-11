@@ -34,13 +34,6 @@ replicates, you only need to define the threshold (according to Hellemans et
 To facilitate the use of the function, I suggest you to use the
 gWidgets package as described in the vignette.
 }
-\examples{
-
-data(qPCR_run1)
-
-badCt(data=qPCR_run1, r=3, threshold=0.3, na.rm=TRUE)
-
-}
 \references{
 Jan Hellemans, Geert Mortier, Anne De Paepe, Frank Speleman and
 Jo Vandesompele. qBase relative quantification framework and software for

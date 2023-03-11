@@ -2,12 +2,17 @@
 % Please edit documentation in R/cnrqs.R
 \name{cnrqs}
 \alias{cnrqs}
-\title{cnrqs}
+\title{Calculate CNRQs values for the whole qPCR experiment
+(batch / run series)}
 \usage{
 cnrqs(nrqs.list, run.data.df)
 }
 \arguments{
-\item{run.data.df}{}
+\item{nrqs.list}{Object returned by nrqs function.}
+
+\item{run.data.df}{data frame or tibble containing qPCR Cq values data for each gene per sample
+per run per well. It requires a column per gene, with, as well as columns
+to indicate the Well, Run, and Sample in which a given Cq value was measured.}
 }
 \value{
 list

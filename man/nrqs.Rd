@@ -2,7 +2,7 @@
 % Please edit documentation in R/nrqs.R
 \name{nrqs}
 \alias{nrqs}
-\title{nrqs}
+\title{Calculate the NRQs values for each run}
 \usage{
 nrqs(
   run.data.df,
@@ -18,8 +18,34 @@ nrqs(
 )
 }
 \arguments{
-\item{na.rm}{}
+\item{run.data.df}{data frame or tibble containing qPCR Cq values data for each gene per sample
+per run per well. It requires a column per gene, with, as well as columns
+to indicate the Well, Run, and Sample in which a given Cq value was measured.}
+
+\item{n_replicates}{Number of replicates per sample within runs}
+
+\item{reference_genes}{Character vector with the name(s) of the reference gene(s)}
+
+\item{cals_identifier}{Character string indicating a text pattern to identify the calibrators by
+their names in the Sample column of the data frame, via stringr::str_detect.
+Default is set to "Cal".}
+
+\item{amp_efficiencies}{Object returned by the amp_efficiency function.}
+
+\item{cal.factors.list}{Object returned by calibration_factors function.}
+
+\item{n_control}{Number of control samples.
+The function assumes that this does not apply to the calculations it has to
+ make, thus its default value is NA.}
+
+\item{trace}{logical, print additional information.}
+
+\item{geo}{logical, to scale to your control group, the function will use the
+geometrical mean if TRUE or the arithmetic mean if FALSE.}
+
+\item{na.rm}{a logical value indicating whether NA values should be stripped before the
+computation proceeds.}
 }
 \description{
-Function to automatically calculate the NRQs values for each run
+Function to automatically calculate the NRQs values for each run.
 }

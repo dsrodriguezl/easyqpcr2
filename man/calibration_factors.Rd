@@ -2,7 +2,7 @@
 % Please edit documentation in R/calibration_factors.R
 \name{calibration_factors}
 \alias{calibration_factors}
-\title{calibration_factors}
+\title{Calculate the calibration factors of each run.}
 \usage{
 calibration_factors(
   run.data.df,
@@ -18,12 +18,49 @@ calibration_factors(
 )
 }
 \arguments{
-\item{na.rm}{}
+\item{run.data.df}{data frame or tibble containing qPCR Cq values data for each gene per sample
+per run per well. It requires a column per gene, with, as well as columns
+to indicate the Well, Run, and Sample in which a given Cq value was measured.}
+
+\item{n_replicates}{Number of replicates per sample within runs}
+
+\item{reference_genes}{Character vector with the name(s) of the reference gene(s)}
+
+\item{cals_identifier}{Character string indicating a text pattern to identify the calibrators by
+their names in the Sample column of the data frame, via stringr::str_detect.
+Default is set to "Cal".}
+
+\item{amp_efficiencies}{Object returned by the amp_efficiency function}
+
+\item{CF}{Calibration factors. The function assumes that this variable does not apply,
+as the function purpose is to calculate them.
+
+This is a parameter of EasyqpcR::nrmData, where it would be numeric (or
+object if you have used the EasyqpcR::calData function), values of
+the calibration factors for each gene (follow the same order of the genes).
+
+calibration_factors can take defined values for CF, in case you have
+calculated them externally (e.g. using the original EasyqpcR::calData).
+In that case it will just pass the specified CF to normalize_data.}
+
+\item{n_control}{Number of control samples.
+The function assumes that this does not apply to the calculations it has to
+ make, thus its default value is NA.}
+
+\item{trace}{logical, print additional information.}
+
+\item{geo}{logical, to scale to your control group, the function will use the
+geometrical mean if TRUE or the arithmetic mean if FALSE.}
+
+\item{na.rm}{a logical value indicating whether NA values should be stripped before the
+computation proceeds.}
 }
 \value{
 list
 }
 \description{
 Function to automatically get the calibration
-factors of each run
+factors of each run.
+
+It relies on the original EasyqpcR::calData function.
 }

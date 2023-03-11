@@ -22,7 +22,8 @@ normalize_data(
 )
 }
 \arguments{
-\item{data}{data.frame containing row datas (genes in columns, samples in rows, Cq values).}
+\item{data}{data.frame containing qPCR Cq values data for each gene per sample per run
+per well}
 
 \item{r}{numeric, number of qPCR replicates}
 
@@ -54,9 +55,20 @@ geometrical mean if TRUE or the arithmetic mean if FALSE.}
 \item{na.rm}{a logical value indicating whether NA values should be stripped before the
 computation proceeds.}
 }
+\value{
+A list with the following entries:
+
+NRQs normalized to control
+ Holds the normalized relative quantities scaled to the control group.
+
+NRQs Holds the normalized relative quantities.
+
+NRQs of your calibrator for this run
+ Holds the normalized relative quantities of the calibrator(s).
+}
 \description{
 Customized version of the nrmData function, it is meant to be
- used within the calibration_factors function.
+ used within the calibration_factors or nrqs functions.
 
  This function is basically identical to the original nmrData.
  Obviously the name is different, which is in snake case format and is
@@ -64,4 +76,15 @@ Customized version of the nrmData function, it is meant to be
  But, unlike nmrData it does not rely on the pakcage plyr being loaded, which
  causes conflicts with the dplyr package. Instead, plyr functions are called
  using '::'.
+}
+\references{
+Jan Hellemans, Geert Mortier, Anne De Paepe, Frank Speleman and
+Jo Vandesompele. qBase relative quantification framework and software for
+management and automated analysis of real-time quantitative PCR data. Genome
+Biology 2007, 8:R19 (doi:10.1186/gb-2007-8-2-r19).
+}
+\author{
+Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
+
+Daniel S. Rodríguez-Leon (author of easyqpcr2)
 }

@@ -28,54 +28,6 @@
 #' management and automated analysis of real-time quantitative PCR data. Genome
 #' Biology 2007, 8:R19 (doi:10.1186/gb-2007-8-2-r19).
 #'
-#' @examples
-#'
-#' data(qPCR_run1,qPCR_run2,qPCR_run3)
-#' nrmData(data = qPCR_run1 , r=3, E=c(2, 2, 2, 2),
-#' Eerror=c(0.02, 0.02, 0.02, 0.02), nSpl=5,
-#' nbRef=2, Refposcol=1:2, nCTL=2,
-#' CF=c(1, 1, 1, 1), CalPos=5, trace=TRUE, geo=TRUE, na.rm=TRUE)
-#'
-#' nrmData(data = qPCR_run2 , r=3, E=c(2, 2, 2, 2),
-#' Eerror=c(0.02, 0.02, 0.02, 0.02), nSpl=5,
-#' nbRef=2, Refposcol=1:2, nCTL=2,
-#' CF=c(1, 1, 1, 1), CalPos=5, trace=TRUE, geo=TRUE, na.rm=TRUE)
-#'
-#' nrmData(data = qPCR_run3 , r=3, E=c(2, 2, 2, 2),
-#' Eerror=c(0.02, 0.02, 0.02, 0.02), nSpl=5,
-#' nbRef=2, Refposcol=1:2, nCTL=2,
-#' CF=c(1, 1, 1, 1), CalPos=5, trace=TRUE, geo=TRUE, na.rm=TRUE)
-#'
-#' ## Isolate the calibrator NRQ values of the first biological replicate
-#'
-#' a <- nrmData(data = qPCR_run1 , r=3, E=c(2, 2, 2, 2),
-#' Eerror=c(0.02, 0.02, 0.02, 0.02), nSpl=5,
-#' nbRef=2, Refposcol=1:2, nCTL=2,
-#' CF=c(1, 1, 1, 1), CalPos=5, trace=TRUE, geo=TRUE, na.rm=TRUE)[[3]]
-#'
-#' ## Isolate the calibrator NRQ values of the first biological replicate
-#'
-#' b <- nrmData(data = qPCR_run2 , r=3, E=c(2, 2, 2, 2),
-#' Eerror=c(0.02, 0.02, 0.02, 0.02), nSpl=5,
-#' nbRef=2, Refposcol=1:2, nCTL=2,
-#' CF=c(1, 1, 1, 1), CalPos=5, trace=TRUE, geo=TRUE, na.rm=TRUE)[[3]]
-#'
-#' ## Isolate the calibrator NRQ values of the first biological replicate
-#'
-#' c <- nrmData(data = qPCR_run3 , r=3, E=c(2, 2, 2, 2),
-#' Eerror=c(0.02, 0.02, 0.02, 0.02), nSpl=5,
-#' nbRef=2, Refposcol=1:2, nCTL=2,
-#' CF=c(1, 1, 1, 1), CalPos=5, trace=TRUE, geo=TRUE, na.rm=TRUE)[[3]]
-#'
-#' ## Regrouping the calibrator NRQ values of all the biological replicates
-#'
-#' d <- rbind(a, b, c)
-#'
-#' ## Calibration factor calculation
-#'
-#' e <- calData(d)
-#'
-#'
 #' @export
 
 calData <-function(data)

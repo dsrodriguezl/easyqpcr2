@@ -2,18 +2,48 @@
 % Please edit documentation in R/amp_efficiency.R
 \name{amp_efficiency}
 \alias{amp_efficiency}
-\title{amp_efficiency}
+\title{Function to calculate the amplification efficiency}
 \usage{
 amp_efficiency(data, q, r, na.rm = FALSE)
 }
 \arguments{
-\item{na.rm}{}
+\item{data}{data.frame containing row datas (genes in columns, samples in
+rows, Cq values).}
+
+\item{q}{numeric, cDNA dilution values.}
+
+\item{r}{numeric, number of qPCR replicates.}
+
+\item{na.rm}{logical, indicating whether NA values should be stripped before
+the computation proceeds.}
 }
 \value{
-list
+A tibble data frame containing the amplification efficiency calculation
+ results for each gene.
+
+ intercept Intercept of the dilution curve
+
+ slope Slope of the dilution curve.
+
+ se.slope Standard error of the slope of the dilution curve.
+
+ efficiency Primer amplification efficiency.
+
+ se.efficiency Standard error of the primer amplification efficiency.
 }
 \description{
-This is a custom version of the "slope" function of the EasyqpcR package.
-It has been adapted to run on recent versions of R, and to calculate the
-standard error of the efficiency (not only the efficiency)
+This is a custom version of the "EasyqpcR::slope function.
+ It has been adapted to run on recent versions of R, and to
+ calculate the standard error of the efficiency (not only the efficiency).
+}
+\references{
+Jan Hellemans, Geert Mortier, Anne De Paepe, Frank Speleman and
+Jo Vandesompele. qBase relative quantification framework and software for
+management and automated analysis of real-time quantitative PCR data. Genome
+Biology 2007, 8:R19 (doi:10.1186/gb-2007-8-2-r19).
+}
+\author{
+Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
+
+Daniel S. Rodríguez-Leon (author of easyqpcr2)
 }

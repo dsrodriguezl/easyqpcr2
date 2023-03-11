@@ -6,6 +6,6 @@
 \alias{easyqpcr2-package}
 \title{easyqpcr2: Custom package based on the abandoned EasyqpcR package}
 \description{
-Rebuild of the abandoned EasyqpcR package, from Bioconductor (V 2.12). As EasyqpcR, this package is intended for the analysis of low-throughput real-time quantitative PCR data, based on the qBase algorithms published by Hellemans et al. in 2007. Several functions were modyfied to be able to work with the newest version of R, and/or to add extra functionalities to them. New versions of the original functions state that they are modified of an original EasyqpcR function, and of which, in their descriptions. The code of the original unmodified EasyqpcR functions is included in this package, to make it available available to any user. However, they might not run.
+Rebuild of the abandoned EasyqpcR package, from Bioconductor (V 2.12). As EasyqpcR, this package is intended for the analysis of low-throughput real-time quantitative PCR data, based on the qBase algorithms published by Hellemans et al. in 2007. Several functions were modyfied to be able to work with the newest version of R, and/or to add extra functionalities to them. New versions of the original functions state that they are modified of an original EasyqpcR function, and of which, in their descriptions.
 }
 \keyword{internal}
