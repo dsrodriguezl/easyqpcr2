@@ -2,6 +2,7 @@ Package: easyqpcr2
 Type: Package
 Title: Custom package based on the abandoned EasyqpcR package
 Version: 0.1.0
+Date: Sys.date()
 Author: Daniel S. Rodríguez-Leon
 Maintainer: Daniel S. Rodríguez-Leon
   <72925497+dsrodriguezl@users.noreply.github.com>
