@@ -76,7 +76,7 @@ calibration_factors <- function(run.data.df
 
   # Sets the data frame structure to the one required by normalize_data
   tmp_df <- run.data.df |>
-    select(-(Well:Run)) |>
+    select(-(contains("Well"):contains("Run"))) |>
     as.data.frame()
 
   # If the CF is set to NA in the function call (default)
@@ -85,7 +85,7 @@ calibration_factors <- function(run.data.df
   if (is.na(CF)) {
     CF <- rep(1
               , ncol(tmp_df |>
-                       select(-Sample)))
+                       select(-contains("Sample"))))
   }
 
   # Defines n_control as 5, if it was set to NA in the function call (default)
@@ -101,7 +101,7 @@ calibration_factors <- function(run.data.df
   # Get the position of the first calibrator
   # Note: Assumes the calibrators are all at the end of the data frame
   first_cal <- 1 + (run.data.df |>
-                      filter(!stringr::str_detect(Sample
+                      filter(!stringr::str_detect(get("Sample")
                                                   , cals_identifier)) |>
                       nrow() / n_replicates)
 

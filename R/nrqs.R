@@ -60,7 +60,7 @@ nrqs <- function(run.data.df
 
   # Sets the data frame structure to the one required by normalize_data
   tmp_df <- run.data.df |>
-    select(-(Well:Run)) |>
+    select(-(contains("Well"):contains("Run"))) |>
     as.data.frame()
 
   # Defines n_control as 5, if it was set to NA in the function call (default)
@@ -79,18 +79,18 @@ nrqs <- function(run.data.df
       pluck(run)
 
     run_cal <- run.data.df |>
-      filter(Run == run
-             , Sample |> stringr::str_detect(cals_identifier)) |>
-      pull(Sample) |>
+      filter(get("Run") == run
+             , get("Sample") |> stringr::str_detect(cals_identifier)) |>
+      pull("Sample") |>
       unique()
 
     if (length(run_cal) > 1) {
       first_cal <- 1 + (run.data.df |>
-                          filter(!stringr::str_detect(Sample
+                          filter(!stringr::str_detect(get("Sample")
                                                       , cals_identifier)) |>
                           nrow()/n_replicates)
       last_cal <- run.data.df |>
-        filter(!Sample %in% run_cal) |>
+        filter(!get("Sample") %in% run_cal) |>
         nrow()/n_replicates
 
       run_cal <- c(first_cal:last_cal)
@@ -98,7 +98,7 @@ nrqs <- function(run.data.df
 
     if (length(run_cal) == 1) {
       run_cal <- run.data.df |>
-        filter(!Sample %in% run_cal) |>
+        filter(!get("Sample") %in% run_cal) |>
         nrow()/n_replicates
     }
 

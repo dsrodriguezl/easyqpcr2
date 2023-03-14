@@ -89,31 +89,34 @@ amp_efficiency  <-  function(data, q, r, na.rm = FALSE) {
   # Extract the intercept, slope, and std. error of the slope
   intercept <- fit |>
     tidy() |>
-    filter(term == "(Intercept)") |>
-    pull(estimate)
+    filter(get("term") == "(Intercept)") |>
+    pull("estimate")
 
   names(intercept) <- fit |>
     tidy() |>
-    filter(term == "(Intercept)") |>
-    pull(response)
+    filter(get("term") == "(Intercept)") |>
+    pull("response")
 
-  E <- bind_cols(gene = fit |>
+  E <- bind_cols("gene" = fit |>
                    tidy() |>
-                   filter(term == "(Intercept)") |>
-                   pull(response)
-                 , intercept = fit |>
+                   filter(get("term") == "(Intercept)") |>
+                   pull("response")
+                 , "intercept" = fit |>
                    tidy() |>
-                   filter(term == "(Intercept)") |>
-                   pull(estimate)
+                   filter(get("term") == "(Intercept)") |>
+                   pull("estimate")
                  , fit |>
                    tidy() |>
-                   filter(term == "log10(q)") |>
-                   select(estimate, std.error)) |>
-    mutate(slope = estimate
-           , se.slope = std.error
+                   filter(get("term") == "log10(q)") |>
+                   select(contains("estimate"), contains("std.error"))) |>
+    mutate("slope" = get("estimate")
+           , "se.slope" = get("std.error")
            , .keep = "unused") |>
-    mutate(efficiency = 10^(-1 / slope)
-           , se.efficiency = ((efficiency) * log(10) * se.slope / slope^2))
+    mutate("efficiency" = 10^(-1 / get("slope"))
+           , "se.efficiency" = (get("efficiency") *
+                                  log(10) *
+                                  get("se.slope") /
+                                  get("slope")^2))
 
   return(E)
 }

@@ -30,8 +30,8 @@ cnrqs <- function(nrqs.list, run.data.df) {
     cnrqs.list[[run]] <- run_nrqs |>
       filter(rownames(run_nrqs) %in%
                (run.data.df |>
-                  filter(Run == run) |>
-                  pull(Sample)))
+                  filter(get("Run") == run) |>
+                  pull("Sample")))
   }
   cnrqs <- cnrqs.list |>
     list_rbind()
