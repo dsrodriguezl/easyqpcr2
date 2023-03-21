@@ -26,7 +26,6 @@
 #' @author
 #' Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
 #'
-#' Daniel S. Rodríguez-Leon (author of easyqpcr2)
 #'
 #' @references Jan Hellemans, Geert Mortier, Anne De Paepe, Frank Speleman and
 #' Jo Vandesompele. qBase relative quantification framework and software for
