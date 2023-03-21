@@ -42,6 +42,4 @@ Biology 2007, 8:R19 (doi:10.1186/gb-2007-8-2-r19).
 }
 \author{
 Sylvain Le pape <sylvain.le.pape@univ-poitiers.fr> (original function author)
-
-Daniel S. Rodríguez-Leon (author of easyqpcr2)
 }

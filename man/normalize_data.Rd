@@ -73,9 +73,8 @@ Customized version of the nrmData function, it is meant to be
  This function is basically identical to the original nmrData.
  Obviously the name is different, which is in snake case format and is
  more informative regarding what the function does.
- But, unlike nmrData it does not rely on the pakcage plyr being loaded, which
- causes conflicts with the dplyr package. Instead, plyr functions are called
- using '::'.
+ But, unlike nmrData it does not rely on the whole packge plyr being loaded,
+ which causes conflicts with the dplyr package.
 }
 \references{
 Jan Hellemans, Geert Mortier, Anne De Paepe, Frank Speleman and

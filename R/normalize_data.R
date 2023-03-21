@@ -53,9 +53,12 @@
 #'  This function is basically identical to the original nmrData.
 #'  Obviously the name is different, which is in snake case format and is
 #'  more informative regarding what the function does.
-#'  But, unlike nmrData it does not rely on the pakcage plyr being loaded, which
-#'  causes conflicts with the dplyr package. Instead, plyr functions are called
-#'  using '::'.
+#'  But, unlike nmrData it does not rely on the whole packge plyr being loaded,
+#'  which causes conflicts with the dplyr package.
+#'
+#' @importFrom plyr mdply
+#'
+#' @importFrom matrixStats colProds
 #'
 #' @returns A list with the following entries:
 #'
@@ -112,7 +115,7 @@ normalize_data  <- function(data
 
   rootgeoM <- function(data, E){data^(1 / nbRef)}
 
-  geoM <- plyr::mdply(RQ[, Refposcol], 'prod', MARGIN = 1)
+  geoM <- mdply(RQ[, Refposcol], 'prod', MARGIN = 1)
   geoM <- geoM[, ncol(geoM)]
   geoM <- as.data.frame(geoM)
   rq1 <- rootgeoM(geoM, E)
@@ -213,7 +216,7 @@ normalize_data  <- function(data
   if (geo) {
     if (nCTL >= 2) {
       o1 <- (as.matrix.data.frame(o[1:nCTL, ]) |>
-               matrixStats::colProds(na.rm = na.rm))^(1 / length(1:nCTL))
+               colProds(na.rm = na.rm))^(1 / length(1:nCTL))
       o1 <- as.data.frame(o1)
     } else {
       o1 <- (o[1:nCTL,])
