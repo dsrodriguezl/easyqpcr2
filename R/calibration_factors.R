@@ -93,7 +93,7 @@ calibration_factors <- function(run.data.df
   # but the original EasyqpcR::nrmData function requires it to work.
   # I did not changed this to allow using the custom function to be used
   # in the case of a control vs treatment analysis, although that was not the
-  # analysis that drived my interest on developing the package.
+  # analysis that drove my interest on developing the package.
   if (is.na(n_control)) {
     n_control <- 5
   }
@@ -137,7 +137,9 @@ calibration_factors <- function(run.data.df
         , geo = geo
         , na.rm = na.rm) |>
       pluck(3) |>
-      slice(as.numeric(run)) |>
+      # Take only the calibrator of the current
+      slice(which(runs == run)) |>
+      # Calculate calibrator factors for the run
       calData()
   }
   cal.factors.list
