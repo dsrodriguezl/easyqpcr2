@@ -1,6 +1,6 @@
 #' @title Calculate the calibration factors of each run.
 #'
-#' @description  Function to automatically get the calibration
+#' @description Function to automatically get the calibration
 #' factors of each run.
 #'
 #' It relies on the original EasyqpcR::calData function.
@@ -13,12 +13,16 @@
 #' @param n_replicates Number of replicates per sample within runs
 #'
 #' @param reference_genes
-#' Character vector with the name(s) of the reference gene(s)
+#' Character vector with the name(s) of the reference gene(s).
+#' Note: The function assumes that the reference genes  are the first genes
+#' (columns) in the data frame.
 #'
 #' @param cals_identifier
 #' Character string indicating a text pattern to identify the calibrators by
 #' their names in the Sample column of the data frame, via stringr::str_detect.
 #' Default is set to "Cal".
+#' Note: The function assumes the calibrators are all at the end of the data
+#' frame.
 #'
 #' @param amp_efficiencies
 #' Object returned by the amp_efficiency function
@@ -38,7 +42,7 @@
 #' @param n_control
 #' Number of control samples.
 #' The function assumes that this does not apply to the calculations it has to
-#'  make, thus its default value is NA.
+#' make, thus its default value is NA.
 #'
 #' @param trace
 #' logical, print additional information.
@@ -62,7 +66,6 @@
 calibration_factors <- function(run.data.df
                                 , n_replicates
                                 , reference_genes
-
                                 , cals_identifier = "Cal"
                                 , amp_efficiencies
                                 , CF = NA
@@ -137,7 +140,7 @@ calibration_factors <- function(run.data.df
         , geo = geo
         , na.rm = na.rm) |>
       pluck(3) |>
-      # Take only the calibrator of the current
+      # Take only the calibrator of the current run
       slice(which(runs == run)) |>
       # Calculate calibrator factors for the run
       calData()
